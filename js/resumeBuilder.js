@@ -1,7 +1,6 @@
 /*
 This is empty on purpose! Your code to build the resume will go here.
  */
- //$("#main").append("Rishi Sukul");
  var formattedName = HTMLheaderName.replace("%data%","Rishi Sukul");
  var formattedRole = HTMLheaderRole.replace("%data%","NGO-IT-specialist");
 
@@ -22,7 +21,7 @@ bio = {
         "email": "justRishi@gmail.com",
         "github": "justRishi",
         "linkedIn": "https://es.linkedin.com/in/rishisukul",
-        "location": "Barcelona (spain)"
+        "location": "Barcelona, Spain"
     },
     "skills": [
         "Managing SharePoint projects",
@@ -54,7 +53,7 @@ bio = {
 education = {
 	"schools" : [{
 			"name"				: "the Hague University of Applied Sciences",
-			"location"			: "the Hague",
+			"location"			: "the Hague, the Netherlands",
 			"degree"			: "Bachelor",
 			"specialisation"	: "information systems and technical infrastructures",
 			"dates"				: "July 2002",
@@ -62,7 +61,7 @@ education = {
 		},
 		{
 			"name"				: "University of Amsterdam",
-			"location"			: "Amsterdam",
+			"location"			: "Amsterdam, the Netherlands",
 			"degree"			: "post graduate courses",
 			"specialisation"	: "philosophy",
 			"dates"				: "July 2009",
@@ -88,21 +87,21 @@ education = {
 work = {
 	"jobs" : [
 		{
-			"employer"	: "MSF Spain (MSF = doctors without borders)", 
+			"employer"	: "MSF Spain (doctors without borders)", 
 			"title"		: "Medical Data & System Support Technician",
-			"location"	: "Barcelona",
+			"location"	: "Barcelona, Spain",
 			"dates"		: "june 2015 - now",
 			"description" : "A temporary position to help setup Health Information Systems in the MSF Spain missions. The purpose of this project is to improve decision making by speeding up and improving the capture, validation, storage, aggregation and analysis of the medical data. For this I will travel to some of the MSF missions. "
 		},
 		{
-			"employer"	: "MSF Spain (MSF = doctors without borders)", 
+			"employer"	: "MSF Spain (doctors without borders)", 
 			"title"		: "Information Management Coordination", 
 			"location"	: "Barcelona, Spain",
 			"dates"		: "May 2012 - May 2015",
 			"description" : "To coordinate work related to the ECMS in use(SharePoint) and supporting activities related to document management. Managing a team and evolution of the solutions implemented and organizing improvements to document processes. Participating in O&S departmental coordinator meetings."
 		},
 		{
-			"employer"	: "MSF Holland (MSF = doctors without borders)", 
+			"employer"	: "MSF Holland (doctors without borders)", 
 			"title"		: "SharePoint advisor + HR-field Support", 
 			"location"	: "Amsterdam, the Netherlands",
 			"dates"		: "August 2011 - April 2012",
@@ -145,14 +144,25 @@ projects = {
 		{
 			"title" : "Upgrading and Migrating to new SharePoint version (version 2013)",
 			"dates" : "September 2014 - May 2015" ,
-			"description" : "Selecting solution provider to help us with upgrading and migrating, based on selection criteria after creating a RFP (2014). This project included changing and improving Infrastructure before migrating and simplifying solutions with modern insights."
+			"description" : "Selecting solution provider to help us with upgrading and migrating, based on selection criteria after creating a RFP (2014). This project included changing and improving Infrastructure before migrating and simplifying solutions with modern insights.",
+			"image" : "images/newOLE.jpg"
 		},
 		{
 			"title": "Organizing & doing the Migration of the old intranet to the new intranet", 
 			"dates": "June 2012 - August 2012",
-			"description": "Managing migrating the old (plone based) intranet to SharePoint(2012)"  
+			"description": "Managing migrating the old (plone based) intranet to SharePoint(2012)" ,
+			"image" : "images/oldOLE.png" 
 		}
-	]
+	],
+	"display": function(){	
+		this.projects.forEach(function(project, i, arr){
+			$("#projects").append(HTMLprojectStart);
+			$(".project-entry:last").append(HTMLprojectTitle.replace("%data%", project.title));
+			$(".project-entry:last").append(HTMLprojectDates.replace("%data%", project.dates));
+			$(".project-entry:last").append(HTMLprojectDescription.replace("%data%", project.description));
+			$(".project-entry:last").append(HTMLprojectImage.replace("%data%", project.image));
+		});
+	}
 }
 
 if (bio.skills.length > 0){
@@ -179,6 +189,8 @@ function displayWork(){
 }
 
 displayWork();
+projects.display();
+$("#mapDiv").append(googleMap);
 
 $("#main").append(internationalizeButton);
 
