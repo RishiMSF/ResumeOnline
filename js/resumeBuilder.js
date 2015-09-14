@@ -47,7 +47,22 @@ bio = {
             "language": "german",
             "level": "basic"
         }
-    ]
+    ],
+    "biopic" : "/images/me_small.jpg"
+    "display": function(){
+    	$("#topContacts").append(HTMLcontactGeneric.replace("%contact%",this.name));
+    	$("#topContacts").append(HTMLmobile.replace("%data%",this.contacts.mobile));
+    	$("#topContacts").append(HTMLemail.replace("%data%",this.contacts.email));
+    	$("#topContacts").append(HTMLgithub.replace("%data%",this.contacts.github));
+    	
+    	
+    	if (this.skills.length > 0){
+			$("#header").append(HTMLskillsStart);
+    		this.skills.forEach(function(skill, i, arr){
+    			$("#skills").append(HTMLskills.replace("%data%", skill));
+    		});
+		}
+    } 
 };
 
 education = {
@@ -81,7 +96,31 @@ education = {
 			"date"				: "ongoing",
 			"url"				: "https://www.udacity.com/course/data-analyst-nanodegree--nd002"
 		}
-	]
+	],
+	"display" : function(){
+		if (this.schools.length > 0){
+			this.schools.forEach( function(school, i, arr){
+				$("#education").append(HTMLschoolStart);
+				$(".education-entry:last").append(HTMLschoolName.replace("%data%",school.name));
+				$(".education-entry:last").append(HTMLschoolLocation.replace("%data%",school.location));
+				$(".education-entry:last").append(HTMLschoolDegree.replace("%data%",school.degree));
+				$(".education-entry:last").append(HTMLschoolMajor.replace("%data%",school.specialisation));
+				$(".education-entry:last").append(HTMLschoolDates.replace("%data%",school.dates));		
+			});
+		}
+
+		if (this.courses.length > 0){
+			$("#education").append(HTMLonlineClasses);
+			this.courses.forEach( function(course, i, arr){
+				$("#education").append(HTMLschoolStart);
+				$(".education-entry:last").append(HTMLonlineTitle.replace("%data%",course.title));
+				$(".education-entry:last").append(HTMLonlineSchool.replace("%data%",course.school));
+				$(".education-entry:last").append(HTMLonlineDates.replace("%data%",course.date));
+				$(".education-entry:last").append(HTMLonlineURL.replace("%data%",course.url));
+			});
+		}		
+	}
+
 }
 
 work = {
@@ -136,7 +175,22 @@ work = {
 			"description" : "Hired by I&I to design and build a new reporting system for the CBS (National Bureau for Statistics) with migration of historical data.  "
 		}
 
-	]	
+	],
+	"display" : function(){
+		if (this.jobs.length > 0){
+			this.jobs.forEach(function(job, i, arr){
+				$("#workExperience").append(HTMLworkStart);
+
+				var formattedEmployer = HTMLworkEmployer.replace("%data%",job.employer);
+				var formattedJobTitle = HTMLworkTitle.replace("%data%", job.title);
+				
+				$(".work-entry:last").append( formattedEmployer + formattedJobTitle);
+				$(".work-entry:last").append(HTMLworkDates.replace("%data%", job.dates));
+				$(".work-entry:last").append(HTMLworkLocation.replace("%data%", job.location));
+				$(".work-entry:last").append(HTMLworkDescription.replace("%data%", job.description));
+			});
+		}
+	}	
 }
 
 projects = {
@@ -144,14 +198,16 @@ projects = {
 		{
 			"title" : "Upgrading and Migrating to new SharePoint version (version 2013)",
 			"dates" : "September 2014 - May 2015" ,
-			"description" : "Selecting solution provider to help us with upgrading and migrating, based on selection criteria after creating a RFP (2014). This project included changing and improving Infrastructure before migrating and simplifying solutions with modern insights.",
-			"image" : "images/newOLE.jpg"
+			"description" : "Selecting solution provider to help us with upgrading and migrating, " +
+			"based on selection criteria after creating a RFP (2014). This project included changing " + 
+			"and improving Infrastructure before migrating and simplifying solutions with modern insights.",
+			"image" : "images/newOLE_small.jpg"
 		},
 		{
 			"title": "Organizing & doing the Migration of the old intranet to the new intranet", 
 			"dates": "June 2012 - August 2012",
 			"description": "Managing migrating the old (plone based) intranet to SharePoint(2012)" ,
-			"image" : "images/oldOLE.png" 
+			"image" : "images/oldOLE_small.jpg" 
 		}
 	],
 	"display": function(){	
@@ -165,31 +221,11 @@ projects = {
 	}
 }
 
-if (bio.skills.length > 0){
-	$("#header").append(HTMLskillsStart);
-    bio.skills.forEach(function(skill, i, arr){
-    	$("#skills").append(HTMLskills.replace("%data%", skill));
-    });
-}
-
-function displayWork(){
-	if (work.jobs.length > 0){
-		work.jobs.forEach(function(job, i, arr){
-			$("#workExperience").append(HTMLworkStart);
-
-			var formattedEmployer = HTMLworkEmployer.replace("%data%",job.employer);
-			var formattedJobTitle = HTMLworkTitle.replace("%data%", job.title);
-			
-			$(".work-entry:last").append( formattedEmployer + formattedJobTitle);
-			$(".work-entry:last").append(HTMLworkDates.replace("%data%", job.dates));
-			$(".work-entry:last").append(HTMLworkLocation.replace("%data%", job.location));
-			$(".work-entry:last").append(HTMLworkDescription.replace("%data%", job.description));
-		});
-	}
-}
-
-displayWork();
+bio.display();
 projects.display();
+work.display();
+education.display();
+
 $("#mapDiv").append(googleMap);
 
 $("#main").append(internationalizeButton);
