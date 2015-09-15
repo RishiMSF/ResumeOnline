@@ -264,24 +264,24 @@ function inName(fn, ln){
 	return names.join(" ");
 }
 
-      google.load("visualization", "1", {packages:["timeline"]});
-      google.setOnLoadCallback(drawChart);
+google.load("visualization", "1", {packages:["timeline"]});
+google.setOnLoadCallback(drawChart);
 
-      function drawChart() {
-        var container = document.getElementById('timeline');
-        var chart = new google.visualization.Timeline(container);
-        var dataTable = new google.visualization.DataTable();
+function drawChart() {
+    var container = document.getElementById('timeline');
+    var chart = new google.visualization.Timeline(container);
+    var dataTable = new google.visualization.DataTable();
 
-        dataTable.addColumn({ type: 'string', id: 'Company' });
-        dataTable.addColumn({ type: 'date', id: 'Start' });
-        dataTable.addColumn({ type: 'date', id: 'End' });
+    dataTable.addColumn({ type: 'string', id: 'Company' });
+    dataTable.addColumn({ type: 'date', id: 'Start' });
+    dataTable.addColumn({ type: 'date', id: 'End' });
 
-        work.jobs.forEach(function(job, i, arr){
-        	dataTable.addRow([job.employer,job.start, job.end]);
-		});
+    work.jobs.forEach(function(job, i, arr){
+        dataTable.addRow([job.employer,job.start, job.end]);
+	});
 
-        chart.draw(dataTable);
-      }
+    chart.draw(dataTable);
+}
 
 		
 
