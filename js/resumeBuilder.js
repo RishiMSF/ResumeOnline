@@ -1,12 +1,6 @@
 /*
 This is empty on purpose! Your code to build the resume will go here.
  */
- var formattedName = HTMLheaderName.replace("%data%","Rishi Sukul");
- var formattedRole = HTMLheaderRole.replace("%data%","NGO-IT-specialist");
-
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-
 var bio = {};
 var education = {};
 var work = {};
@@ -15,7 +9,7 @@ var projects = {};
 bio = {
     "name": "Rishi Sukul",
     "role": "Medical Data & System Support Technician",
-    "welcomeMessage": "NGO IT-specialist",
+    "welcomeMessage": "Please contact me for any questions",
     "contacts": {
         "mobile": "please email me",
         "email": "justRishi@gmail.com",
@@ -48,18 +42,26 @@ bio = {
             "level": "basic"
         }
     ],
-    "biopic" : "/images/me_small.jpg"
+    "biopic" : "images/me_small.jpg",
     "display": function(){
-    	$("#topContacts").append(HTMLcontactGeneric.replace("%contact%",this.name));
+    	var formattedName = HTMLheaderName.replace("%data%","Rishi Sukul");
+		var formattedRole = HTMLheaderRole.replace("%data%","NGO-IT-specialist");
+
+		$("#header").prepend(formattedRole);
+		$("#header").prepend(formattedName);
+
+		$("#header").append(HTMLwelcomeMsg.replace("%data%",this.welcomeMessage));	
+
+    	$("#topContacts").append(HTMLlocation.replace("%data%",this.contacts.location));
     	$("#topContacts").append(HTMLmobile.replace("%data%",this.contacts.mobile));
     	$("#topContacts").append(HTMLemail.replace("%data%",this.contacts.email));
     	$("#topContacts").append(HTMLgithub.replace("%data%",this.contacts.github));
-    	
+    	$("#header").append(HTMLbioPic.replace("%data%",this.biopic));
     	
     	if (this.skills.length > 0){
 			$("#header").append(HTMLskillsStart);
     		this.skills.forEach(function(skill, i, arr){
-    			$("#skills").append(HTMLskills.replace("%data%", skill));
+    			$("#skills-h3").append(HTMLskills.replace("%data%", skill));
     		});
 		}
     } 
@@ -98,14 +100,19 @@ education = {
 		}
 	],
 	"display" : function(){
+		var formattedNameDegree;	
+
 		if (this.schools.length > 0){
 			this.schools.forEach( function(school, i, arr){
 				$("#education").append(HTMLschoolStart);
-				$(".education-entry:last").append(HTMLschoolName.replace("%data%",school.name));
+
+				formattedNameDegree = HTMLschoolName.replace("%data%",school.name) + HTMLschoolDegree.replace("%data%",school.degree);			
+
+				$(".education-entry:last").append(formattedNameDegree);
+				$(".education-entry:last").append(HTMLschoolDates.replace("%data%",school.dates));
 				$(".education-entry:last").append(HTMLschoolLocation.replace("%data%",school.location));
-				$(".education-entry:last").append(HTMLschoolDegree.replace("%data%",school.degree));
 				$(".education-entry:last").append(HTMLschoolMajor.replace("%data%",school.specialisation));
-				$(".education-entry:last").append(HTMLschoolDates.replace("%data%",school.dates));		
+						
 			});
 		}
 
@@ -113,8 +120,10 @@ education = {
 			$("#education").append(HTMLonlineClasses);
 			this.courses.forEach( function(course, i, arr){
 				$("#education").append(HTMLschoolStart);
-				$(".education-entry:last").append(HTMLonlineTitle.replace("%data%",course.title));
-				$(".education-entry:last").append(HTMLonlineSchool.replace("%data%",course.school));
+
+				formattedNameDegree = HTMLonlineTitle.replace("%data%",course.title) + 	HTMLonlineSchool.replace("%data%",course.school);
+
+				$(".education-entry:last").append(formattedNameDegree);
 				$(".education-entry:last").append(HTMLonlineDates.replace("%data%",course.date));
 				$(".education-entry:last").append(HTMLonlineURL.replace("%data%",course.url));
 			});
@@ -130,6 +139,8 @@ work = {
 			"title"		: "Medical Data & System Support Technician",
 			"location"	: "Barcelona, Spain",
 			"dates"		: "june 2015 - now",
+			"start"		: new Date(2015, 6, 1),
+			"end"		: new Date(2015, 12, 31),
 			"description" : "A temporary position to help setup Health Information Systems in the MSF Spain missions. The purpose of this project is to improve decision making by speeding up and improving the capture, validation, storage, aggregation and analysis of the medical data. For this I will travel to some of the MSF missions. "
 		},
 		{
@@ -137,6 +148,8 @@ work = {
 			"title"		: "Information Management Coordination", 
 			"location"	: "Barcelona, Spain",
 			"dates"		: "May 2012 - May 2015",
+			"start"		: new Date(2012, 5, 1),
+			"end"		: new Date(2015, 5, 30),
 			"description" : "To coordinate work related to the ECMS in use(SharePoint) and supporting activities related to document management. Managing a team and evolution of the solutions implemented and organizing improvements to document processes. Participating in O&S departmental coordinator meetings."
 		},
 		{
@@ -144,13 +157,17 @@ work = {
 			"title"		: "SharePoint advisor + HR-field Support", 
 			"location"	: "Amsterdam, the Netherlands",
 			"dates"		: "August 2011 - April 2012",
+			"start"		: new Date(2011, 8, 1),
+			"end"		: new Date(2012, 4, 30),
 			"description" : "Developing and maintaining the SharePoint environment so that the continuity and functioning of the various community spaces (e.g. intranet) of the organization are ensured. Part time Supporting MSF-teams in the Field with their payroll system (Homere)."
 		},
 		{
 			"employer"	: "Motion10", 
 			"title"		: "BI consultant", 
 			"location"	: "Rotterdam, the Netherlands",
-			"dates"		: "May 2011 - Juky 2011",
+			"dates"		: "April 2011 - July 2011",
+			"start"		: new Date(2011, 4, 1),
+			"end"		: new Date(2011, 7, 30),
 			"description" : "IT consultancy solution provider in the Netherlands.Implementing and designing portals, information interchange (Biz-Talk) and Business Intelligence solutions (SQL -Server) for large companies such as Shell  and Universities, e.g. Erasmus University."
 		},
 		{
@@ -158,13 +175,17 @@ work = {
 			"title"		: "BI-consultant", 
 			"location"	: "Bilthoven, the Netherlands",
 			"dates"		: "2007 - 2010",
+			"start"		: new Date(2007, 1, 1),
+			"end"		: new Date(2010, 12, 31),
 			"description" : "IT consultancy and Business Intelligence (BI) solution provider in the Netherlands. Implementing and maintaining Business Intelligence (SQL-Server)/ SharePoint solutions for healthcare"
 		},
 		{
 			"employer"	: "Defense Telematics Organization", 
 			"title"		: "Software Developer / Information architect", 
 			"location"	: "Rijswijk, the Netherlands",
-			"dates"		: "2007 - 2010",
+			"dates"		: "2000 - 2007",
+			"start"		: new Date(2000, 8, 1),
+			"end"		: new Date(2006, 12, 31),
 			"description" : "IT service supplier for the Dutch Ministry of Defense.   Integrating multiple systems maintained by multiple units. Writing work instructions for administrators and developers and supporting the organization’s database administration unit. Developing and maintaining ECM."
 		},
 		{
@@ -172,6 +193,8 @@ work = {
 			"title"		: "Software Developer", 
 			"location"	: "Rotterdam, the Netherlands",
 			"dates"		: "1999 - 2000",
+			"start"		: new Date(1999, 8, 1),
+			"end"		: new Date(2000, 7, 30),
 			"description" : "Hired by I&I to design and build a new reporting system for the CBS (National Bureau for Statistics) with migration of historical data.  "
 		}
 
@@ -240,3 +263,26 @@ function inName(fn, ln){
 
 	return names.join(" ");
 }
+
+      google.load("visualization", "1", {packages:["timeline"]});
+      google.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var container = document.getElementById('timeline');
+        var chart = new google.visualization.Timeline(container);
+        var dataTable = new google.visualization.DataTable();
+
+        dataTable.addColumn({ type: 'string', id: 'Company' });
+        dataTable.addColumn({ type: 'date', id: 'Start' });
+        dataTable.addColumn({ type: 'date', id: 'End' });
+
+        work.jobs.forEach(function(job, i, arr){
+        	dataTable.addRow([job.employer,job.start, job.end]);
+		});
+
+        chart.draw(dataTable);
+      }
+
+		
+
+

@@ -22,6 +22,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   <title>Resume</title>
 
   <!-- Load the page styles. -->
+   <link href='https://fonts.googleapis.com/css?family=Rajdhani:500' rel='stylesheet' type='text/css'>
   <link href="css/style.css" rel="stylesheet">
 
   <!--
@@ -47,7 +48,9 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   Google Map to your resume!
   -->
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script> 
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>    
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
 
   <meta name="viewport" content="width=device-width">
 </head>
@@ -67,18 +70,19 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     <div style="clear: both;"></div>
     <div id="workExperience" class="gray">
       <h2>Work Experience</h2>
+      <div id="timeline" style="height: 300px;"></div>
     </div>
-    <div id="projects">
+    <div id="projects" class="gray">
       <h2>Projects</h2>
     </div>
     <div id="education" class="gray">
       <h2>Education</h2>
     </div>
-    <div id="mapDiv">
+    <div id="mapDiv" class="gray">
       <h2>Where I've Lived and Worked</h2>
     </div>
     <div id="lets-connect" class="dark-gray">
-      <h2 class="orange center-text">Let's Connect</h2>
+      <h2 class="center-text">Let's Connect</h2>
         <ul id="footerContacts" class="flex-box">
       </ul>
     </div>
