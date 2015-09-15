@@ -72,6 +72,10 @@ h5 {
 
 }
 
+#timeline{
+  height:   300px;
+  padding :   0px   5%  0px   5% ;
+}
 
 .date-text {
   font-style: italic;
