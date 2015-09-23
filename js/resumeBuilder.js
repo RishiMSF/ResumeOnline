@@ -74,6 +74,8 @@ education = {
 			"degree"			: "Bachelor",
 			"specialisation"	: "information systems and technical infrastructures",
 			"dates"				: "July 2002",
+			"start"				: new Date(1996, 9, 1),
+			"end"				: new Date(2002, 6, 30),
 			"url"				: "http://www.thehagueuniversity.com/"
 		},
 		{
@@ -82,6 +84,8 @@ education = {
 			"degree"			: "post graduate courses",
 			"specialisation"	: "philosophy",
 			"dates"				: "July 2009",
+			"start"				: new Date(2008, 9, 1),
+			"end"				: new Date(2009, 7, 1),
 			"url"				: "http://www.uva.nl/en/home"
 		}	
 	],
@@ -90,12 +94,16 @@ education = {
 			"title"				: "Nanodegree frontend web developer",
 			"school"			: "Udacity",																								
 			"date"				: "ongoing",
+			"start"				: new Date(2015, 6, 1),
+			"end"				: new Date(),
 			"url"				: "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
 		},
 		{
 			"title"				: "Nanodegree Data analyst",
 			"school"			: "Udacity",
 			"date"				: "ongoing",
+			"start"				: new Date(2015, 6, 1),
+			"end"				: new Date(),
 			"url"				: "https://www.udacity.com/course/data-analyst-nanodegree--nd002"
 		}
 	],
@@ -254,7 +262,7 @@ $("#mapDiv").append(googleMap);
 $("#main").append(internationalizeButton);
 
 function inName(fn, ln){
-	var names = bio.name.trim().split(" ");
+	var names =	 bio.name.trim().split(" ");
     
     if (names.length === 2){
     	names[1] = names[1].toUpperCase();
@@ -272,15 +280,30 @@ function drawChart() {
     var chart = new google.visualization.Timeline(container);
     var dataTable = new google.visualization.DataTable();
 
+    dataTable.addColumn({ type: 'string', id: 'Position' });
     dataTable.addColumn({ type: 'string', id: 'Company' });
     dataTable.addColumn({ type: 'date', id: 'Start' });
     dataTable.addColumn({ type: 'date', id: 'End' });
 
     work.jobs.forEach(function(job, i, arr){
-        dataTable.addRow([job.employer,job.start, job.end]);
+        dataTable.addRow(["Work", job.employer,job.start, job.end]);
 	});
 
-    chart.draw(dataTable);
+	education.schools.forEach(function(school, i, arr){
+        dataTable.addRow(["school", school.name,school.start, school.end]);
+	});
+
+	education.courses.forEach(function(course, i, arr){
+		if (course.start > 0 ){
+        	dataTable.addRow(["Course", course.school + " - " + course.title,course.start, course.end]);
+		}
+	});	
+
+	var options = {
+    timeline: { groupByRowLabel: false }
+  };
+
+    chart.draw(dataTable, options);
 }
 
 		

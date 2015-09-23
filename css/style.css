@@ -73,7 +73,8 @@ h5 {
 }
 
 #timeline{
-  height:   300px;
+  height:  200px;
+  width:  90%;
   padding :   0px   5%  0px   5% ;
 }
 
@@ -137,6 +138,10 @@ a {
   padding-bottom: 10px;
   margin-bottom:  10px;
   clear:both;
+}
+
+.box{
+  border-radius: 10px;
 }
 
 .dark-gray {
@@ -219,8 +224,6 @@ span {
 }
 
 #mapDiv {
-  height: 400px;
-  width: 100%;
   padding-bottom: 5%;
 }
 
