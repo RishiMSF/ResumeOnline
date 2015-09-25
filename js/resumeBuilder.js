@@ -105,6 +105,15 @@ education = {
 			"start"				: new Date(2015, 6, 1),
 			"end"				: new Date(),
 			"url"				: "https://www.udacity.com/course/data-analyst-nanodegree--nd002"
+		},
+		{
+			"title"				: "PRO: Designing and Developing Web-based Applications by Using the Microsoft " +
+								  ".NET Framework",
+			"school"			: "Koenig -  Microsoft cerfication",
+			"date"				: "Jun 14, 2007",
+			"start"				: new Date(2007, 5, 1),
+			"end"				: new Date(2007, 6, 14),
+			"url"				: "https://www.udacity.com/course/data-analyst-nanodegree--nd002"
 		}
 	],
 	"display" : function(){
