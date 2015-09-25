@@ -133,19 +133,13 @@ a {
   color: #333;
 }
 
-.gray {
+
+
+.section{
+  border-radius: 10px;
   background-color: #f3f3f3;
   padding-bottom: 10px;
   margin-bottom:  10px;
-  clear:both;
-}
-
-.box{
-  border-radius: 10px;
-}
-
-.dark-gray {
-  background-color: #f3f3f3;
 }
 
 /* TODO: Replace with image later */
