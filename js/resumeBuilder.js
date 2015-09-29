@@ -166,7 +166,6 @@ education = {
 				$(".education-entry:last").append(HTMLschoolDates.replace("%data%",school.dates));
 				$(".education-entry:last").append(HTMLschoolLocation.replace("%data%",school.location));
 				$(".education-entry:last").append(HTMLschoolMajor.replace("%data%",school.specialisation));
-			//	$(".education-entry:last").append(HTMLschoolURL.replace("#",school.url).replace("%data%","school link"));
 			});
 		}
 
@@ -191,6 +190,7 @@ education = {
 
 				$(".education-entry:last").append(formattedNameDegree);
 				$(".education-entry:last").append(HTMLCertificationDate.replace("%data%",certification.date));
+				$(".education-entry:last").append(HTMLCertificationLocation.replace("%data%",certification.location));
 			});
 		}
 	}
