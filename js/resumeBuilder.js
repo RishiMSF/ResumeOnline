@@ -185,12 +185,10 @@ education = {
 			$("#education").append(HTMLCertification);
 			this.certifications.forEach( function(certification, i, arr){
 				$("#education").append(HTMLschoolStart);
-
-				formattedNameDegree = HTMLCertificationTitle.replace("%data%",certification.title).replace("#",certification.url) + HTMLCertificationSchool.replace("%data%",certification.school);
-
-				$(".education-entry:last").append(formattedNameDegree);
+				$(".education-entry:last").append(HTMLCertificationSchool.replace("%data%",certification.school).replace("#",certification.url));
 				$(".education-entry:last").append(HTMLCertificationDate.replace("%data%",certification.date));
 				$(".education-entry:last").append(HTMLCertificationLocation.replace("%data%",certification.location));
+				$(".education-entry:last").append(HTMLCertificationTitle.replace("%data%",certification.title));
 			});
 		}
 	}
@@ -356,7 +354,7 @@ function drawChart() {
 	});
 
 	var options = {
-    timeline: { groupByRowLabel: false }
+    timeline: { groupByRowLabel: true }
   };
 
     chart.draw(dataTable, options);

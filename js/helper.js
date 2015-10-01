@@ -50,9 +50,9 @@ var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<em><br>Major: %data%</em>';
 
 var HTMLCertification = '<h3>Courses</h3>';
-var HTMLCertificationTitle = '<a href="#">%data%';
+var HTMLCertificationTitle = '<em><br>%data%</em>';
 var HTMLCertificationLocation = '<div class="location-text">%data%</div>';
-var HTMLCertificationSchool = ' - %data%</a>';
+var HTMLCertificationSchool = '<a href="#">%data%</a>';
 var HTMLCertificationDate = '<div class="date-text">%data%</div>';
 
 var HTMLonlineClasses = '<h3>Online Classes</h3>';
