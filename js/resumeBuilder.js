@@ -133,6 +133,24 @@ education = {
 			"start"				: new Date(2007, 6, 14),
 			"end"				: new Date(2007, 5, 1),
 			"url"				: "docs/MS_Learning_Transcript.PDF"
+		},
+		{
+			"title"				: "Oracle 8i Certified Professional",
+			"location"			: "The Hague",
+			"school"			: "Oracle University",
+			"date"				: "February 2nd, 2002",
+			"start"				: new Date(2001, 10, 01),
+			"end"				: new Date(2001, 02, 02),
+			"url"				: "http://education.oracle.com"
+		},
+		{
+			"title"				: "Java Certified Programmer 1.2",
+			"location"			: "The Hague",
+			"school"			: "Sun",
+			"date"				: "January 5th, 2002",
+			"start"				: new Date(2002, 10, 01),
+			"end"				: new Date(2002, 02, 02),
+			"url"				: "http://education.oracle.com"
 		}
 	],
 	"courses" : [
@@ -283,15 +301,40 @@ projects = {
 		{
 			"title" : "Upgrading and Migrating to new SharePoint version (version 2013)",
 			"dates" : "September 2014 - May 2015" ,
+			"start"		: new Date(2014, 9, 1),
+			"end"		: new Date(2015, 5, 31),
+			"location"  : "Barcelona, Spain",
 			"description" : "Selecting solution provider to help us with upgrading and migrating, " +
 			"based on selection criteria after creating a RFP (2014). This project included changing " +
-			"and improving Infrastructure before migrating and simplifying solutions with modern insights.",
+			"and improving Infrastructure before migrating and simplifying solutions with modern insights.",		
+			"employer" : "",
 			"image" : "images/newOLE_small.jpg"
 		},
 		{
 			"title": "Organizing & doing the Migration of the old intranet to the new intranet",
 			"dates": "June 2012 - August 2012",
+			"start"		: new Date(2012, 6, 1),
+			"end"		: new Date(2012, 8, 31),
+			"location"  : "Mexico city, Mexico",
 			"description": "Managing migrating the old (plone based) intranet to SharePoint(2012)" ,
+			"image" : "images/oldOLE_small.jpg"
+		},
+		{
+			"title": "Imp. Health Information System for MSF",
+			"dates": "August 2015",
+			"start"		: new Date(2015, 8, 7),
+			"end"		: new Date(2015, 8, 14),
+			"location"  : "Mexico city, Mexico",
+			"description": "Replace excel files In MSF Projects with an on- and offline webbased Health Information System." ,
+			"image" : "images/oldOLE_small.jpg"
+		},
+		{
+			"title": "Imp. Health Information System for MSF",
+			"dates": "August 2015",
+			"start"		: new Date(2015, 8, 14),
+			"end"		: new Date(2015, 8, 21),
+			"location"  : "Acapulco, Mexico",
+			"description": "Replace excel files In MSF Projects with an on- and offline webbased Health Information System." ,
 			"image" : "images/oldOLE_small.jpg"
 		}
 	],

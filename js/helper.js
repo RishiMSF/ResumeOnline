@@ -45,15 +45,15 @@ var HTMLprojectImage = '<img src="%data%">';
 var HTMLschoolStart = '<div class="education-entry"></div>';
 var HTMLschoolName = '<a href="#">%data%';
 var HTMLschoolDegree = ' -- %data%</a>';
-var HTMLschoolDates = '<div class="date-text">%data%</div>';
-var HTMLschoolLocation = '<div class="location-text">%data%</div>';
+var HTMLschoolDates = '<div class="subtext">%data%</div>';
+var HTMLschoolLocation = '<div class="subtext">%data%</div>';
 var HTMLschoolMajor = '<em><br>Major: %data%</em>';
 
-var HTMLCertification = '<h3>Courses</h3>';
+var HTMLCertification = '<br><h3>Courses</h3>';
 var HTMLCertificationTitle = '<em><br>%data%</em>';
-var HTMLCertificationLocation = '<div class="location-text">%data%</div>';
+var HTMLCertificationLocation = '<div class="subtext">%data%</div>';
 var HTMLCertificationSchool = '<a href="#">%data%</a>';
-var HTMLCertificationDate = '<div class="date-text">%data%</div>';
+var HTMLCertificationDate = '<div class="subtext">%data% - </div>';
 
 var HTMLonlineClasses = '<h3>Online Classes</h3>';
 var HTMLonlineTitle = '<a href="#">%data%';
@@ -111,8 +111,12 @@ function initializeMap() {
   var locations;
 
   var mapOptions = {
-    disableDefaultUI: true
+    disableDefaultUI: true,
+    styles :[{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"saturation":-100},{"lightness":51},{"visibility":"simplified"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}]
+
   };
+
+
 
   /* 
   For the map to be displayed, the googleMap var must be
@@ -120,7 +124,7 @@ function initializeMap() {
   */
   map = new google.maps.Map(document.querySelector('#map'), mapOptions);
 
-
+  
   /*
   locationFinder() returns an array of every location string from the JSONs
   written for bio, education, and work.
@@ -137,6 +141,10 @@ function initializeMap() {
     // the locations array
     for (var school in education.schools) {
       locations.push(education.schools[school].location);
+    }
+
+    for (var course in education.certifications) {
+      locations.push(education.certifications[course].location);
     }
 
     // iterates through work locations and appends each location to
@@ -185,7 +193,7 @@ function initializeMap() {
     bounds.extend(new google.maps.LatLng(lat, lon));
     // fit the map to the new marker
     map.fitBounds(bounds);
-    // center the map
+    // center the maps
     map.setCenter(bounds.getCenter());
   }
 

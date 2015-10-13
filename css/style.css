@@ -78,21 +78,12 @@ h5 {
   padding :   0px   5%  0px   5% ;
 }
 
-.date-text {
+.subtext {
   font-style: italic;
   font-size: 14px;
   color: #999;
   line-height: 16px;
   float: left;
-}
-
-.location-text {
-  font-style: italic;
-  font-size: 14px;
-  color: #999;
-  line-height: 16px;
-  float: right;
-
 }
 
 p {
