@@ -39,6 +39,7 @@ var HTMLworkDescription = '<p><br>%data%</p>';
 var HTMLprojectStart = '<div class="project-entry"></div>';
 var HTMLprojectTitle = '<a href="#">%data%</a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
+var HTMLprojectLocation = '<div class="location-text">%data%</div>';
 var HTMLprojectDescription = '<p><br>%data%</p>';
 var HTMLprojectImage = '<img src="%data%">';
 
@@ -151,6 +152,10 @@ function initializeMap() {
     // the locations array
     for (var job in work.jobs) {
       locations.push(work.jobs[job].location);
+    }
+
+    for (var project in projects.projects) {
+      locations.push(projects.projects[project].location);
     }
 
     return locations;

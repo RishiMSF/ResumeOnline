@@ -299,6 +299,43 @@ work = {
 projects = {
 	"projects": [
 		{
+			"title": "Imp. Health Information System for MSF",
+			"dates": "October 2015",
+			"start"		: new Date(2015, 10, 22),
+			"end"		: new Date(2015, 10, 29),
+			"location"  : "Kilis, Turkey",
+			"description": "Replace excel files In MSF Projects with an on- and offline webbased Health Information System." 
+//			"image" : "images/oldOLE_small.jpg"
+		},
+		{
+			"title": "Imp. Health Information System for MSF",
+			"dates": "October 2015",
+			"start"		: new Date(2015, 10, 22),
+			"end"		: new Date(2015, 10, 29),
+			"location"  : "Jerusalem, Israel",
+			"description": "Replace excel files In MSF Projects with an on- and offline webbased Health Information System." 
+//			"image" : "images/oldOLE_small.jpg"
+		},
+		{
+			"title": "Imp. Health Information System for MSF",
+			"dates": "August 2015",
+			"start"		: new Date(2015, 8, 7),
+			"end"		: new Date(2015, 8, 14),
+			"location"  : "Mexico city, Mexico",
+			"description": "Replace excel files In MSF Projects with an on- and offline webbased Health Information System. " 
+			               + " I was hired to replace the project manager and finanlize it." ,
+			//"image" : "images/oldOLE_small.jpg"
+		},
+		{
+			"title": "Imp. Health Information System for MSF",
+			"dates": "August 2015",
+			"start"		: new Date(2015, 8, 14),
+			"end"		: new Date(2015, 8, 21),
+			"location"  : "Acapulco, Mexico",
+			"description": "Replace excel files In MSF Projects with an on- and offline webbased Health Information System." ,
+			"image" : "images/oldOLE_small.jpg"
+		},
+		{
 			"title" : "Upgrading and Migrating to new SharePoint version (version 2013)",
 			"dates" : "September 2014 - May 2015" ,
 			"start"		: new Date(2014, 9, 1),
@@ -315,26 +352,8 @@ projects = {
 			"dates": "June 2012 - August 2012",
 			"start"		: new Date(2012, 6, 1),
 			"end"		: new Date(2012, 8, 31),
-			"location"  : "Mexico city, Mexico",
+			"location"  : "Barcelona, Spain",
 			"description": "Managing migrating the old (plone based) intranet to SharePoint(2012)" ,
-			"image" : "images/oldOLE_small.jpg"
-		},
-		{
-			"title": "Imp. Health Information System for MSF",
-			"dates": "August 2015",
-			"start"		: new Date(2015, 8, 7),
-			"end"		: new Date(2015, 8, 14),
-			"location"  : "Mexico city, Mexico",
-			"description": "Replace excel files In MSF Projects with an on- and offline webbased Health Information System." ,
-			"image" : "images/oldOLE_small.jpg"
-		},
-		{
-			"title": "Imp. Health Information System for MSF",
-			"dates": "August 2015",
-			"start"		: new Date(2015, 8, 14),
-			"end"		: new Date(2015, 8, 21),
-			"location"  : "Acapulco, Mexico",
-			"description": "Replace excel files In MSF Projects with an on- and offline webbased Health Information System." ,
 			"image" : "images/oldOLE_small.jpg"
 		}
 	],
@@ -343,8 +362,12 @@ projects = {
 			$("#projects").append(HTMLprojectStart);
 			$(".project-entry:last").append(HTMLprojectTitle.replace("%data%", project.title));
 			$(".project-entry:last").append(HTMLprojectDates.replace("%data%", project.dates));
+			$(".project-entry:last").append(HTMLprojectLocation.replace("%data%", project.location));
 			$(".project-entry:last").append(HTMLprojectDescription.replace("%data%", project.description));
-			$(".project-entry:last").append(HTMLprojectImage.replace("%data%", project.image));
+			
+			if (project.image != null ){
+				$(".project-entry:last").append(HTMLprojectImage.replace("%data%", project.image));
+			}
 		});
 	}
 }
