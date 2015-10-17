@@ -103,7 +103,7 @@ education = {
 			"location"			: "Goa, India",
 			"school"			: "Koenig -  Microsoft Certified IT Professional",
 			"date"				: "March 14, 2011",
-			"start"				: new Date(2011, 3, 01),
+			"start"				: new Date(2011, 3, 1),
 			"end"				: new Date(2011, 3, 14),
 			"url"				: "docs/MS_Learning_Transcript.PDF"
 		},
@@ -112,7 +112,7 @@ education = {
 			"location"			: "Goa, India",
 			"school"			: "Koenig -  Microsoft Certified IT Professional",
 			"date"				: "February 19, 2011",
-			"start"				: new Date(2011, 2, 01),
+			"start"				: new Date(2011, 2, 1),
 			"end"				: new Date(2012, 2, 19),
 			"url"				: "docs/MS_Learning_Transcript.PDF"
 		},
@@ -130,26 +130,26 @@ education = {
 			"location"			: "Shimla, India",
 			"school"			: "Koenig - Microsoft Certified Professional Developer",
 			"date"				: "June 14, 2007",
-			"start"				: new Date(2007, 6, 14),
-			"end"				: new Date(2007, 5, 1),
+			"start"				: new Date(2007, 5, 14),
+			"end"				: new Date(2007, 6, 1),
 			"url"				: "docs/MS_Learning_Transcript.PDF"
 		},
 		{
 			"title"				: "Oracle 8i Certified Professional",
-			"location"			: "The Hague",
+			"location"			: "The Hague, The Netherlands",
 			"school"			: "Oracle University",
 			"date"				: "February 2nd, 2002",
-			"start"				: new Date(2001, 10, 01),
-			"end"				: new Date(2001, 02, 02),
+			"start"				: new Date(2000, 10, 1),
+			"end"				: new Date(2001, 2, 2),
 			"url"				: "http://education.oracle.com"
 		},
 		{
 			"title"				: "Java Certified Programmer 1.2",
-			"location"			: "The Hague",
+			"location"			: "The Hague, The Netherlands",
 			"school"			: "Sun",
 			"date"				: "January 5th, 2002",
-			"start"				: new Date(2002, 10, 01),
-			"end"				: new Date(2002, 02, 02),
+			"start"				: new Date(2001, 10, 1),
+			"end"				: new Date(2002, 2, 2),
 			"url"				: "http://education.oracle.com"
 		}
 	],
@@ -379,7 +379,7 @@ education.display();
 
 $("#mapDiv").append(googleMap);
 
-$("#main").append(internationalizeButton);
+//$("#main").append(internationalizeButton);
 
 function inName(fn, ln){
 	var names =	 bio.name.trim().split(" ");
@@ -413,6 +413,10 @@ function drawChart() {
         dataTable.addRow(["school", school.name,school.start, school.end]);
 	});
 
+	education.certifications.forEach(function(cert, i, arr){
+        dataTable.addRow(["certification", cert.title,cert.start, cert.end]);
+	});
+
 	education.courses.forEach(function(course, i, arr){
 		if (course.start > 0 ){
         	dataTable.addRow(["Course", course.school + " - " + course.title,course.start, course.end]);
@@ -420,8 +424,8 @@ function drawChart() {
 	});
 
 	var options = {
-    timeline: { groupByRowLabel: true }
-  };
+    	timeline: { groupByRowLabel: true }
+  	};
 
     chart.draw(dataTable, options);
 }

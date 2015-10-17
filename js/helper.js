@@ -135,30 +135,41 @@ function initializeMap() {
     // initializes an empty array
     var locations = [];
 
-    // adds the single location property from bio to the locations array
-    locations.push(bio.contacts.location);
-
-    // iterates through school locations and appends each location to
-    // the locations array
-    for (var school in education.schools) {
-      locations.push(education.schools[school].location);
+    for (var project in projects.projects) {
+      locations.push(projects.projects[project].location);
     }
 
     for (var course in education.certifications) {
       locations.push(education.certifications[course].location);
     }
 
+    for (var school in education.schools) {
+      locations.push(education.schools[school].location);
+    }
+
+    // adds the single location property from bio to the locations array
+    locations.push(bio.contacts.location);
+
+    // iterates through school locations and appends each location to
+    // the locations array
+    
+
+    
     // iterates through work locations and appends each location to
     // the locations array
     for (var job in work.jobs) {
       locations.push(work.jobs[job].location);
     }
 
-    for (var project in projects.projects) {
-      locations.push(projects.projects[project].location);
-    }
+    var uniqueLocations = [];
 
-    return locations;
+    locations.forEach(function(location, i, arr){
+        if (uniqueLocations.indexOf(location) === -1){
+          uniqueLocations.push(location);
+        }
+    });
+
+    return uniqueLocations;
   }
 
   /*
