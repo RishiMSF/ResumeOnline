@@ -243,7 +243,7 @@ work = {
 			"start"		: new Date(2011, 8, 1),
 			"end"		: new Date(2012, 4, 30),
 			"description" : "Developing and maintaining the SharePoint environment so that the continuity and functioning of the various community spaces (e.g. intranet) of the organization are ensured. Part time Supporting MSF-teams in the Field with their payroll system (Homere).",
-			"url"		: "www.artsenzondergrenzen.nl"
+			"url"		: "http://www.artsenzondergrenzen.nl"
 		},
 		{
 			"employer"	: "Motion10",
