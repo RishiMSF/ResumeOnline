@@ -221,7 +221,9 @@ work = {
 			"dates"		: "june 2015 - now",
 			"start"		: new Date(2015, 6, 1),
 			"end"		: new Date(2015, 12, 31),
-			"description" : "A temporary position to help setup Health Information Systems in the MSF Spain missions. The purpose of this project is to improve decision making by speeding up and improving the capture, validation, storage, aggregation and analysis of the medical data. For this I will travel to some of the MSF missions. "
+			"description" : "A temporary position to help setup Health Information Systems in the MSF Spain missions. The purpose of this project is to improve decision making by speeding up and improving the capture, validation, storage, aggregation and analysis of the medical data. For this I will travel to some of the MSF missions. ",
+			"url"		: "http://www.msf.es/"
+		
 		},
 		{
 			"employer"	: "MSF Spain (doctors without borders)",
@@ -230,7 +232,8 @@ work = {
 			"dates"		: "May 2012 - May 2015",
 			"start"		: new Date(2012, 5, 1),
 			"end"		: new Date(2015, 5, 30),
-			"description" : "To coordinate work related to the ECMS in use(SharePoint) and supporting activities related to document management. Managing a team and evolution of the solutions implemented and organizing improvements to document processes. Participating in O&S departmental coordinator meetings."
+			"description" : "To coordinate work related to the ECMS in use(SharePoint) and supporting activities related to document management. Managing a team and evolution of the solutions implemented and organizing improvements to document processes. Participating in O&S departmental coordinator meetings.",
+			"url"		: "http://www.msf.es/"
 		},
 		{
 			"employer"	: "MSF Holland (doctors without borders)",
@@ -239,7 +242,8 @@ work = {
 			"dates"		: "August 2011 - April 2012",
 			"start"		: new Date(2011, 8, 1),
 			"end"		: new Date(2012, 4, 30),
-			"description" : "Developing and maintaining the SharePoint environment so that the continuity and functioning of the various community spaces (e.g. intranet) of the organization are ensured. Part time Supporting MSF-teams in the Field with their payroll system (Homere)."
+			"description" : "Developing and maintaining the SharePoint environment so that the continuity and functioning of the various community spaces (e.g. intranet) of the organization are ensured. Part time Supporting MSF-teams in the Field with their payroll system (Homere).",
+			"url"		: "www.artsenzondergrenzen.nl"
 		},
 		{
 			"employer"	: "Motion10",
@@ -248,7 +252,8 @@ work = {
 			"dates"		: "April 2011 - July 2011",
 			"start"		: new Date(2011, 4, 1),
 			"end"		: new Date(2011, 7, 30),
-			"description" : "IT consultancy solution provider in the Netherlands.Implementing and designing portals, information interchange (Biz-Talk) and Business Intelligence solutions (SQL -Server) for large companies such as Shell  and Universities, e.g. Erasmus University."
+			"description" : "IT consultancy solution provider in the Netherlands.Implementing and designing portals, information interchange (Biz-Talk) and Business Intelligence solutions (SQL -Server) for large companies such as Shell  and Universities, e.g. Erasmus University.",
+			"url"		: "http://www.motion10.nl"
 		},
 		{
 			"employer"	: "Performation B.V.",
@@ -257,7 +262,8 @@ work = {
 			"dates"		: "2007 - 2010",
 			"start"		: new Date(2007, 1, 1),
 			"end"		: new Date(2010, 12, 31),
-			"description" : "IT consultancy and Business Intelligence (BI) solution provider in the Netherlands. Implementing and maintaining Business Intelligence (SQL-Server)/ SharePoint solutions for healthcare"
+			"description" : "IT consultancy and Business Intelligence (BI) solution provider in the Netherlands. Implementing and maintaining Business Intelligence (SQL-Server)/ SharePoint solutions for healthcare",
+			"url"		: "http://www.performation.nl/"
 		},
 		{
 			"employer"	: "Defense Telematics Organization",
@@ -266,7 +272,8 @@ work = {
 			"dates"		: "2000 - 2007",
 			"start"		: new Date(2000, 8, 1),
 			"end"		: new Date(2006, 12, 31),
-			"description" : "IT service supplier for the Dutch Ministry of Defense.   Integrating multiple systems maintained by multiple units. Writing work instructions for administrators and developers and supporting the organization’s database administration unit. Developing and maintaining ECM."
+			"description" : "IT service supplier for the Dutch Ministry of Defense.   Integrating multiple systems maintained by multiple units. Writing work instructions for administrators and developers and supporting the organization’s database administration unit. Developing and maintaining ECM.",
+			"url"		: "https://www.defensie.nl/organisatie/dmo/inhoud/onderdelen/jivc"
 		},
 		{
 			"employer"	: "I&I Detachering B.V & Défi B.V",
@@ -284,7 +291,7 @@ work = {
 			this.jobs.forEach(function(job, i, arr){
 				$("#workExperience").append(HTMLworkStart);
 
-				var formattedEmployer = HTMLworkEmployer.replace("%data%",job.employer);
+				var formattedEmployer = HTMLworkEmployer.replace("%data%",job.employer).replace("#",job.url);
 				var formattedJobTitle = HTMLworkTitle.replace("%data%", job.title);
 
 				$(".work-entry:last").append( formattedEmployer + formattedJobTitle);
