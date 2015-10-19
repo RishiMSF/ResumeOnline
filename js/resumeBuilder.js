@@ -11,9 +11,8 @@ bio = {
     "role": "Medical Data & System Support Technician",
     "welcomeMessage": "Please contact me for any questions",
     "contacts": {
-        "mobile": "please email me",
         "email": "justRishi@gmail.com",
-        "github": "justRishi",
+        "github": "RishiMSF",
         "linkedIn": "https://es.linkedin.com/in/rishisukul",
         "location": "Barcelona, Spain"
     },
@@ -52,10 +51,10 @@ bio = {
 
 		$("#header").append(HTMLwelcomeMsg.replace("%data%",this.welcomeMessage));
 
-    	$("#topContacts").append(HTMLlocation.replace("%data%",this.contacts.location));
-    	$("#topContacts").append(HTMLmobile.replace("%data%",this.contacts.mobile));
-    	$("#topContacts").append(HTMLemail.replace("%data%",this.contacts.email));
-    	$("#topContacts").append(HTMLgithub.replace("%data%",this.contacts.github));
+    	$("#topContacts").append(HTMLlocation.replace("%data%",this.contacts.location).replace("#", "https://www.google.com/maps/place/"+this.contacts.location));
+    	$("#topContacts").append(HTMLemail.replace(/%data%/g,this.contacts.email));
+    	$("#topContacts").append(HTMLgithub.replace("%data%",this.contacts.github).replace("#","https://github.com/"+this.contacts.github));
+
     	$("#header").append(HTMLbioPic.replace("%data%",this.biopic));
 
     	if (this.skills.length > 0){
