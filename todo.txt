@@ -1,0 +1,12 @@
+add grid
+
+nav bar with collapsible content
+	http://v4-alpha.getbootstrap.com/components/navbar/
+	only when viewport is small otherwise normal fixed nav bar
+
+add more projects
+
+add pictures
+
+restyle
+
