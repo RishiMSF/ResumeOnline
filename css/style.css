@@ -78,7 +78,6 @@ h5 {
 }
 
 .subtext {
-  font-style: italic;
   font-size: 14px;
   color: #999;
   line-height: 16px;
@@ -99,7 +98,6 @@ a {
 }
 
 .welcome-message {
-  font-style: italic;
   font-size: 18px;
   color: #999;
   line-height: 28px;
