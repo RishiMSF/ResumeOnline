@@ -19,27 +19,27 @@ var HTMLworkEmployer = '<a href="#">%data%';
 var HTMLworkTitle = ' - %data%</a>';
 var HTMLworkDates = '<div class="date-text">%data%</div>';
 var HTMLworkLocation = '<div class="location-text">%data%</div>';
-var HTMLworkDescription = '<p><br>%data%</p>';
+var HTMLworkDescription = '<p>%data%</p>';
 
 var HTMLprojectStart = '<div class="project-entry"></div>';
 var HTMLprojectTitle = '<a href="#">%data%</a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectLocation = '<div class="location-text">%data%</div>';
-var HTMLprojectDescription = '<p><br>%data%</p>';
+var HTMLprojectDescription = '<p>%data%</p>';
 var HTMLprojectImage = '<img src="%data%">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
 var HTMLschoolName = '<a href="#">%data%';
 var HTMLschoolDegree = ' -- %data%</a>';
-var HTMLschoolDates = '<div class="subtext">%data%</div>';
-var HTMLschoolLocation = '<div class="subtext">%data%</div>';
-var HTMLschoolMajor = '<em><br>Major: %data%</em>';
+var HTMLschoolDates = '<div class="date-text">%data%</div>';
+var HTMLschoolLocation = '<div class="location-text">%data%</div>';
+var HTMLschoolMajor = '<p><Major: %data%</p>';
 
 var HTMLCertification = '<br><h3>Courses</h3>';
-var HTMLCertificationTitle = '<em><br>%data%</em>';
-var HTMLCertificationLocation = '<div class="subtext">%data%</div>';
+var HTMLCertificationTitle = '<p>%data%</p>';
+var HTMLCertificationLocation = '<div class="location-text">%data%</div>';
 var HTMLCertificationSchool = '<a href="#">%data%</a>';
-var HTMLCertificationDate = '<div class="subtext">%data% - </div>';
+var HTMLCertificationDate = '<div class="date-text">%data% - </div>';
 
 var HTMLonlineClasses = '<h3>Online Classes</h3>';
 var HTMLonlineTitle = '<a href="#">%data%';
